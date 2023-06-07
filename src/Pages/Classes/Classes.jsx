@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
-import Banner from '../Shared/Banner/banner';
 
-const Home = () => {
+const Classes = () => {
     return (
-        <div className='lg:w-4/6 mx-auto'>
+        <div>
             <Header></Header>
-            <Banner></Banner>
+            Classes
             <Footer></Footer>
+            
         </div>
     );
 };
 
-export default Home;
+export default Classes;
