@@ -5,6 +5,12 @@ import { useContext } from 'react';
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
+
     return (
         <div className='z-10'>
             <div className="navbar bg-base-100">
@@ -23,11 +29,17 @@ const Header = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 z-10">
-                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            {
+                                user ? 
+                                <>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="" alt="" />
+                                    <img src= {user.photoURL} alt="" />
                                 </div>
-                            </label>
+                                </label>
+                                </> : 
+                                <></>
+                            }
                             <li>
                                 <Link to="/">Home</Link>
                             </li>
@@ -40,6 +52,13 @@ const Header = () => {
                             <li>
                                 <Link to="/dashboard">Dashboard</Link>
                             </li>
+                            {
+                                user ? <>
+                                    <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+                                </> : <>
+                                    <li><Link to="/login">Login</Link></li>
+                                </>
+                            }
                         </ul>
                     </div>
                 </div>

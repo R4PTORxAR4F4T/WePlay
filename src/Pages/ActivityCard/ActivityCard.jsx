@@ -15,20 +15,16 @@ const ActivityCard = () => {
     }, [])
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 my-10 '>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10 '>
             {
                 TopActivity.map(activity =>
-                <div key={activity._id} className="card w-96 bg-base-100 shadow-xl image-full">
-                    <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+                <div key={activity._id} className="card bg-base-100 shadow-xl image-full">
+                    <figure><img src={activity.image}/></figure>
                     <div className="card-body">
-                        <h2 className="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <h2 className="card-title">{activity.name}</h2>
                     </div>
-                    </div>
-                </div>)
-            }
+                </div>
+            )}
         </div>
     );
 };
