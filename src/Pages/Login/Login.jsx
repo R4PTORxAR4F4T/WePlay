@@ -45,11 +45,11 @@ const Login = () => {
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify(saveUser)
-                })
-                    .then(res => res.json())
-                    .then(() => {
-                        navigate(from, { replace: true });
-                    })
+            })
+            .then(res => res.json())
+            .then(() => {
+                navigate(from, { replace: true });
+            })
 
             navigate(from, { replace: true })
         })
