@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
-import { useContext } from 'react';
+import { useContext , useState } from 'react';
+import useRole from '../../../hooks/useRole';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -11,12 +12,11 @@ const Header = () => {
             .catch(error => console.log(error));
     }
 
-    const isAdmin = false;
-    const isInstructor = false;
+    const role = useRole();
 
     return (
         <div className='z-10'>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-base-300">
                 <div className="flex-1">
                     <Link to="/" className="btn btn-ghost normal-case text-xl">
                         <img className='h-full' src="/logo.png" alt="" />
@@ -53,24 +53,26 @@ const Header = () => {
                                 <Link to="/classes">Classes</Link>
                             </li>
                             
-                            {
-                                isAdmin ? (
+                            {   
+                                user ?
+                                (
+                                role==="admin" ? (
                                 <li>
-                                    <Link to="/dashboard/adminhome">Dashboard</Link>
+                                    <Link to="/dashboard/manageClasses">Dashboard</Link>
                                 </li>
                                 ) : (
                                 
-                                isInstructor ? <>
+                                    role==="instractor" ? <>
                                     <li>
-                                        <Link to="/dashboard/instractorhome">Dashboard</Link>
+                                        <Link to="/dashboard/addclass">Dashboard</Link>
                                     </li>
                                 </> : <>
                                     <li>
-                                        <Link to="/dashboard/userhome">Dashboard</Link>
+                                        <Link to="/dashboard/selectedClass">Dashboard</Link>
                                     </li>
-                                    </>
+                                </>)
                                     
-                            )}
+                            ) : <></>}
                             
                             {
                                 user ? <>

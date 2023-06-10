@@ -8,8 +8,14 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from "./PrivateRoute";
 import UserHome from "../Pages/UserHome/UserHome";
-import AdminHome from "../Pages/AdminHome/AdminHome";
+import AdminHome from "../Pages/ManageClasses/ManageClasses";
 import InstractorHome from "../Pages/InstractorHome/InstractorHome";
+import AddClass from "../Pages/AddClass/AddClass";
+import MyClasses from "../Pages/MyClasses/MyClasses";
+import ManageClasses from "../Pages/ManageClasses/ManageClasses";
+import ManageUser from "../Pages/ManageUser/ManageUser";
+import SelectedClass from "../Pages/SelectedClass/SelectedClass";
+import EnrollClasses from "../Pages/EnrollClasses/EnrollClasses";
 
 
 
@@ -43,18 +49,31 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
           {
-            path: 'userhome',
-            element: <UserHome></UserHome>
+            path: 'selectedClass',
+            element: <SelectedClass></SelectedClass>
+          },
+          {
+            path: 'enrollClasses',
+            element: <EnrollClasses></EnrollClasses>
           },
           // admin routes
           {
-            path: 'adminhome',
-            element: <AdminHome></AdminHome>
+            path: 'manageClasses',
+            element: <ManageClasses></ManageClasses>
           },
           {
-            path: 'instractorhome',
-            element: <InstractorHome></InstractorHome>
-          },      
+            path: 'manageUser',
+            element:<ManageUser></ManageUser>
+          },
+          //instractor route
+          {
+            path: 'myclasses',
+            element: <MyClasses></MyClasses>
+          },
+          {
+            path: 'addclass',
+            element: <AddClass></AddClass>
+          },    
         ]
       },
 

@@ -2,11 +2,11 @@ import React from 'react';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
 import { Link, Outlet } from 'react-router-dom';
+import useRole from '../../hooks/useRole';
 
 const Dashboard = () => {
 
-    const isAdmin = false;
-    const isInstructor = false;
+    const role = useRole();
 
     return (
         <div className='lg:w-4/6 mx-auto'>
@@ -20,24 +20,27 @@ const Dashboard = () => {
             </div> 
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-                <ul className="menu p-4 h-full bg-base-200 text-base-content">
+                <ul className="menu p-4 h-full bg-base-300 text-base-content">
                 
                 {
-                    isAdmin ? (
+                    role === "admin" ? (
                     <li>
-                        <Link to="/dashboard/adminhome">Dashboard</Link>
+                        <Link to="/dashboard/manageClasses">Manage Classes</Link>
+                        <Link to="/dashboard/manageUser">Manage User</Link>
                     </li>
                     ) : (
                     
-                    isInstructor ? 
+                    role === "instractor" ? 
                     <>
                         <li>
-                            <Link to="/dashboard/instractorhome">Dashboard</Link>
+                            <Link to="/dashboard/addclass">Add Class</Link>
+                            <Link to="/dashboard/myclasses">My Classes</Link>
                         </li>
                     </> : 
                     <>
                         <li>
-                            <Link to="/dashboard/userhome">Dashboard</Link>
+                            <Link to="/dashboard/selectedClass">Selected Class</Link>
+                            <Link to="/dashboard/enrollClasses">Enroll Classes</Link>
                         </li>
                     </>
                         
