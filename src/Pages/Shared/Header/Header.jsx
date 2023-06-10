@@ -11,6 +11,9 @@ const Header = () => {
             .catch(error => console.log(error));
     }
 
+    const isAdmin = false;
+    const isInstructor = false;
+
     return (
         <div className='z-10'>
             <div className="navbar bg-base-100">
@@ -49,9 +52,26 @@ const Header = () => {
                             <li>
                                 <Link to="/classes">Classes</Link>
                             </li>
-                            <li>
-                                <Link to="/dashboard">Dashboard</Link>
-                            </li>
+                            
+                            {
+                                isAdmin ? (
+                                <li>
+                                    <Link to="/dashboard/adminhome">Dashboard</Link>
+                                </li>
+                                ) : (
+                                
+                                isInstructor ? <>
+                                    <li>
+                                        <Link to="/dashboard/instractorhome">Dashboard</Link>
+                                    </li>
+                                </> : <>
+                                    <li>
+                                        <Link to="/dashboard/userhome">Dashboard</Link>
+                                    </li>
+                                    </>
+                                    
+                            )}
+                            
                             {
                                 user ? <>
                                     <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>

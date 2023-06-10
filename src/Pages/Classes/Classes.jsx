@@ -4,7 +4,7 @@ import Footer from '../Shared/Footer/Footer';
 
 const Classes = () => {
     return (
-        <div>
+        <div className='lg:w-4/6 mx-auto'>
             <Header></Header>
             Classes
             <Footer></Footer>

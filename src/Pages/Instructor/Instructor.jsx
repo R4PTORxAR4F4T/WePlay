@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react';
 import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
+import { Helmet } from 'react-helmet-async';
 
 const Instructor = () => {
 
@@ -18,6 +19,9 @@ const Instructor = () => {
 
     return (
         <div className='lg:w-4/6 mx-auto'>
+            <Helmet>
+                <title>WePlay | Instructors</title>
+            </Helmet>
             <Header></Header>
             <div className='my-10'>
             <p className='text-4xl text-center mb-8 border-b pb-4 border-white'>Instractor</p>

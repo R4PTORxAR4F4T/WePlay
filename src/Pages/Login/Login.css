@@ -8,7 +8,7 @@
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
     border-radius: 10px;
-    border: 1px solid #03e9f4;
+    border: 1px solid #ff9901;
   }
   .login-box h2 {
     margin: 0 0 30px;
@@ -44,14 +44,14 @@
   .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
-    color: #03e9f4;
+    color: #ff9901;
     font-size: 12px;
   }
   .login-box form .submit a {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: #03e9f4;
+    color: #ff9901;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -59,15 +59,15 @@
     transition: 0.5s;
     margin-top: 5px;
     letter-spacing: 4px;
-    /* border: 1px solid #03e9f4; */
+    /* border: 1px solid #ff9901; */
     /* border-radius: 5px; */
   }
   .login-box .submit a:hover {
-    background: #03e9f4;
+    background: #ff9901;
     color: rgb(0, 0, 0);
     border-radius: 5px;
-    box-shadow: 0 0 5px #03e9f4, 0 0 0px #03e9f4, 0 0 50px #03e9f4,
-      0 0 0px #03e9f4;
+    box-shadow: 0 0 5px #ff9901, 0 0 0px #ff9901, 0 0 50px #ff9901,
+      0 0 0px #ff9901;
   }
   .login-box a span {
     position: absolute;
@@ -89,7 +89,7 @@
     background: none;
   }
   .submit-creat a:hover {
-    color: #03e9f4;
+    color: #ff9901;
     font-size: 16px;
   }
   

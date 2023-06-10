@@ -42,7 +42,7 @@ const Register = () => {
 
             updateUserProfile(name, photo)
                 .then(() => {
-                    const saveUser = { name: name, email: email }
+                    const saveUser = { name: name, email: email, role:"" }
                     fetch('http://localhost:5000/users', {
                         method: 'POST',
                         headers: {
