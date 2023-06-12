@@ -17,6 +17,7 @@ import ManageUser from "../Pages/ManageUser/ManageUser";
 import SelectedClass from "../Pages/SelectedClass/SelectedClass";
 import EnrollClasses from "../Pages/EnrollClasses/EnrollClasses";
 import UpdateClass from "../Pages/updateClass/updateClass";
+import Payment from "../Pages/Payment/Payment";
 
 
 
@@ -80,7 +81,11 @@ const router = createBrowserRouter([
             path: 'myclasses/:id', 
             element: <UpdateClass></UpdateClass>,
             loader: ({params}) => fetch(`http://localhost:5000/myclasses/${params.id}`)
-          } 
+          },
+          {
+            path: 'payment',
+            element: <Payment></Payment>,
+          },
         ]
       },
 

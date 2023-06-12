@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@egjs/react-flicking": "^4.10.9",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.54.0",
     "firebase": "^9.22.1",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",

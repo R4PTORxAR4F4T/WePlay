@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const {user, loading} = useAuth();
@@ -12,10 +13,10 @@ const SelectedClass = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setCart(data))
-            
+
     }, [url,loading]);
 
-    const total = cart.reduce((sum, cartitem) => sum + parseFloat(cartitem.price), 0);
+    const total = cart ? cart.reduce((sum, cartitem) => sum + parseFloat(cartitem.price), 0) : 0;
 
     const handleDelete = id => {
         Swal.fire({
@@ -79,10 +80,11 @@ const SelectedClass = () => {
             <div className="divider"></div> 
             <div className='text-right'> 
             <p className='text-right'>Total Price : {total} $</p>
-            <button className="btn btn-outline btn-sm">Pay</button>
+                <Link to="/dashboard/payment">
+                    <button className="btn btn-outline btn-sm">Pay</button>
+                </Link>
             </div>
         </div>
-    );
-};
+    )}
 
-export default SelectedClass;
+    export default SelectedClass
