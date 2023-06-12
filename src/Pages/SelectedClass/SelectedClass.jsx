@@ -11,9 +11,11 @@ const SelectedClass = () => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setCart(data,console.log(data)))
+            .then(data => setCart(data))
             
     }, [url,loading]);
+
+    const total = cart.reduce((sum, cartitem) => sum + parseFloat(cartitem.price), 0);
 
     const handleDelete = id => {
         Swal.fire({
@@ -73,6 +75,11 @@ const SelectedClass = () => {
                         )}
                     </tbody>
                 </table>
+            </div>
+            <div className="divider"></div> 
+            <div className='text-right'> 
+            <p className='text-right'>Total Price : {total} $</p>
+            <button className="btn btn-outline btn-sm">Pay</button>
             </div>
         </div>
     );
