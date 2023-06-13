@@ -105,7 +105,8 @@ const CheckoutForm = ({cart,price}) => {
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Payment has been saved',
+                        title: 'Payment Complete',
+                        text: `Transaction saved with transactionId: ${transactionId}`,
                         showConfirmButton: false,
                         timer: 1500
                     })
