@@ -70,7 +70,7 @@ const SelectedClass = () => {
                                 <td>{cartitem.iName}</td>
                                 <td>{cartitem.price} $</td>
                                 <td>
-                                    <button onClick={() => handleDelete(cartitem._id)} className="btn btn-ghost btn-xs">Delete</button>
+                                    <button onClick={() => handleDelete(cartitem.class_id)} className="btn btn-ghost btn-xs">Delete</button>
                                 </td>
                             </tr>
                         )}

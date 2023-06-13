@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import useAuth from '../../hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const CheckoutForm = ({cart,price}) => {
 
@@ -101,9 +102,13 @@ const CheckoutForm = ({cart,price}) => {
                 .then(res=>res.json())
                 .then(res => {
                     console.log(res);
-                    if (res.insertedId) {
-                        console.log("success")
-                    }
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Payment has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 })
         }
     }

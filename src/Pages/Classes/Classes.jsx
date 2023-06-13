@@ -37,7 +37,7 @@ const Classes = () => {
                 iName : iName,
                 price : price,
                 seat : seat,
-                _id : _id     
+                class_id : _id     
             }
             
             fetch('http://localhost:5000/carts', {
