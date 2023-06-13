@@ -18,6 +18,7 @@ import SelectedClass from "../Pages/SelectedClass/SelectedClass";
 import EnrollClasses from "../Pages/EnrollClasses/EnrollClasses";
 import UpdateClass from "../Pages/updateClass/updateClass";
 import Payment from "../Pages/Payment/Payment";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
 
@@ -88,12 +89,10 @@ const router = createBrowserRouter([
           },
         ]
       },
-
-      // Error page route for any unwanted paths
-      // {
-      //   path: '*', 
-      //   element: <ErrorPage></ErrorPage>
-      // }
+      {
+        path: '*', 
+        element: <ErrorPage></ErrorPage>
+      }
     ]
   },
 ]);
