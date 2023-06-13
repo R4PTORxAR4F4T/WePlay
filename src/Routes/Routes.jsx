@@ -19,6 +19,7 @@ import EnrollClasses from "../Pages/EnrollClasses/EnrollClasses";
 import UpdateClass from "../Pages/updateClass/updateClass";
 import Payment from "../Pages/Payment/Payment";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PaymentHistory from "../Pages/PaymentHistory/PaymentHistory";
 
 
 
@@ -86,6 +87,10 @@ const router = createBrowserRouter([
           {
             path: 'payment',
             element: <Payment></Payment>,
+          },
+          {
+            path: 'paymenthistory',
+            element: <PaymentHistory></PaymentHistory>
           },
         ]
       },

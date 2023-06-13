@@ -35,6 +35,25 @@ const ManageClasses = () => {
         })
     }
 
+    const handleDeny = id =>{
+        fetch(`http://localhost:5000/manageclasses/deny?id=${id}`, {
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Class Deny`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+    }
+
     return (
         <div>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Manage All Classes</p>
@@ -57,12 +76,15 @@ const ManageClasses = () => {
                                 <td>{classitem.cName}</td>
                                 <td>{classitem.enrollStudent}</td>
                                 <td>{classitem.status}</td>
-                                <td>
+                                <td className='flex flex-col gap-2'>
                                     <button onClick={() => handleApproved(classitem._id)} className="btn btn-ghost btn-xs btn-outline" >
                                     Approved
                                     </button>
-                                    <button className="btn btn-ghost btn-xs btn-outline" >
+                                    <button onClick={() => handleDeny(classitem._id)} className="btn btn-ghost btn-xs btn-outline" >
                                     Deny
+                                    </button>
+                                    <button  className="btn btn-ghost btn-xs btn-outline" >
+                                    Feedback
                                     </button>
                                 </td>
                             </tr>

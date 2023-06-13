@@ -4,9 +4,11 @@ import Footer from '../Shared/Footer/Footer';
 import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import useRole from '../../hooks/useRole';
 
 const Classes = () => {
 
+    const role = useRole();
     const {user, loading} = useAuth();
     const [classes, setClasses] = useState();
     const navigate = useNavigate();
@@ -46,7 +48,7 @@ const Classes = () => {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(cartItem)
-            })
+            }) 
             .then(res => res.json())
             .then(data => {
                 if(data.insertedId){
@@ -85,13 +87,14 @@ const Classes = () => {
                 {
                     classes && classes.map(classitem =>
 
-                    <div key={`${classitem._id}`} className="card card-compact bg-base-100 shadow-xl">
+                    <div key={`${classitem._id}`} className={`card card-compact ${classitem.seat === classitem.enrollStudent ? 'bg-red-500' : ''} shadow-xl`}>
                     <figure><img src={classitem.cImage} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{classitem.cName}</h2>
                             <p>Inastractor : {classitem.iName}</p>
+                            <p>Inastractor : {classitem.price}</p>
                             <div className="card-actions justify-end">
-                            <button onClick={() => handleAddToCart(classitem)} className="btn btn-primary">Add to Selected</button>
+                            <button onClick={() => handleAddToCart(classitem)} className="btn btn-primary" disabled={role === 'admin' || role === 'instractor' || classitem.seat === classitem.enrollStudent}>Add to Selected</button>
                             </div>
                         </div>
                     </div>
