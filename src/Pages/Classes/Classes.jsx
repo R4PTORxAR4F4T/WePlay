@@ -85,7 +85,7 @@ const Classes = () => {
                 {
                     classes && classes.map(classitem =>
 
-                    <div key={`${classitem._id}`} className="card card-compact bg-base-100 shadow-xl">
+                    <div key={`${classitem._id}-${user?._id}`} className="card card-compact bg-base-100 shadow-xl">
                     <figure><img src={classitem.cImage} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{classitem.cName}</h2>
