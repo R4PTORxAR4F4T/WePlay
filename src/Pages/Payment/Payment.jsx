@@ -26,7 +26,8 @@ const Payment = () => {
         <div className="w-5/6">
             <div>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Payment</p>
-        </div>
+            <p className="text-center my-5 text-orange-300">Your total is : {total} $</p>
+            </div>
         <Elements stripe={stripePromise}>
             <CheckoutForm cart={cart} price={total}></CheckoutForm>
         </Elements>

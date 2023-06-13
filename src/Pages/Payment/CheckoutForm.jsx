@@ -4,8 +4,8 @@ import useAuth from '../../hooks/useAuth';
 
 const CheckoutForm = ({cart,price}) => {
 
-    console.log(price)
-    const {user} = useAuth;
+    // console.log(cart)
+    const {user} = useAuth();
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -13,17 +13,22 @@ const CheckoutForm = ({cart,price}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
 
+
     useEffect(()=>{
-        fetch("http://localhost:5000/create-payment-intent",{
+        
+        if(price>0){
+            fetch("http://localhost:5000/create-payment-intent",{
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'
             }, 
-            body: JSON.stringify(price)
-        })
-        .then((res)=>{
-            setClientSecret(res.data.clientSecret);
-        })
+            body: JSON.stringify({price})
+            })
+            .then(res=>res.json())
+            .then((data)=>{
+                setClientSecret(data.clientSecret);
+            })
+        }
     },[price])
 
     const handleSubmit = async(event)=>{
@@ -38,7 +43,7 @@ const CheckoutForm = ({cart,price}) => {
             return
         }
 
-        console.log(card);
+        console.log("card",card);
         const {error, paymentMethod} = await stripe.createPaymentMethod({
             type: 'card',
             card,
@@ -50,7 +55,7 @@ const CheckoutForm = ({cart,price}) => {
         }
         else {
             setCardError('');
-            // console.log('[PaymentMethod]', paymentMethod);
+            console.log('[PaymentMethod]', paymentMethod);
         }
 
         setProcessing(true)
@@ -67,13 +72,14 @@ const CheckoutForm = ({cart,price}) => {
                 },
             },
         );
-
+        setProcessing(false)
         if (confirmError) {
-            setCardError(confirmError);
+            setCardError(confirmError.message);
+            return
         }
 
-        // console.log(paymentIntent);
-        setProcessing(false)
+        console.log(paymentIntent);
+        
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
             // save payment information to the server
@@ -83,17 +89,19 @@ const CheckoutForm = ({cart,price}) => {
                 price,
                 date: new Date(),
                 status: 'service pending',
+                items: cart,
             }
-                fetch('http://localhost:5000/payments',{
+                fetch(`http://localhost:5000/payments?email=${user?.email}`,{
                     method: 'POST', 
                     headers: {
                         'content-type': 'application/json'
                     }, 
-                    body: JSON.stringify(payment)
+                    body: JSON.stringify({payment})
                 })
+                .then(res=>res.json())
                 .then(res => {
-                    console.log(res.data);
-                    if (res.data.result.insertedId) {
+                    console.log(res);
+                    if (res.insertedId) {
                         console.log("success")
                     }
                 })
