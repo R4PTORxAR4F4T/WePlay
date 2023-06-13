@@ -8,6 +8,7 @@ import Cover from '../Shared/Cover/Cover';
 import ActivityCard from '../ActivityCard/ActivityCard';
 import InstractorCard from '../InstractorCard/InstractorCard';
 import { Helmet } from 'react-helmet-async';
+import OurLocation from '../OurLocation/OurLocation';
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
             <ActivityCard></ActivityCard>
             <Cover img={instractorCover} title='Top Instractor' subtitle='There is our top Instractors'></Cover>
             <InstractorCard></InstractorCard>
+            <OurLocation></OurLocation>
             <Footer></Footer>
         </div>
     );
