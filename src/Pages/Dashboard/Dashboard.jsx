@@ -3,6 +3,10 @@ import Header from '../Shared/Header/Header';
 import Footer from '../Shared/Footer/Footer';
 import { Link, Outlet } from 'react-router-dom';
 import useRole from '../../hooks/useRole';
+import { SiGoogleclassroom } from "react-icons/si";
+import { FaUsersCog, FaClipboardList ,FaHistory } from "react-icons/fa";
+import { BiBookAdd, BiSelectMultiple } from "react-icons/bi";
+import { MdPayments } from "react-icons/md";
 
 const Dashboard = () => {
 
@@ -25,23 +29,23 @@ const Dashboard = () => {
                 {
                     role === "admin" ? (
                     <li>
-                        <Link to="/dashboard/manageClasses">Manage Classes</Link>
-                        <Link to="/dashboard/manageUser">Manage User</Link>
+                        <Link to="/dashboard/manageClasses"><SiGoogleclassroom></SiGoogleclassroom>Manage Classes</Link>
+                        <Link to="/dashboard/manageUser"><FaUsersCog></FaUsersCog>Manage User</Link>
                     </li>
                     ) : (
                     
                     role === "instractor" ? 
                     <>
                         <li>
-                            <Link to="/dashboard/addclass">Add Class</Link>
-                            <Link to="/dashboard/myclasses">My Classes</Link>
+                            <Link to="/dashboard/addclass"><BiBookAdd></BiBookAdd>Add Class</Link>
+                            <Link to="/dashboard/myclasses"><FaClipboardList></FaClipboardList>My Classes</Link>
                         </li>
                     </> : 
                     <>
                         <li>
-                            <Link to="/dashboard/selectedClass">Selected Class</Link>
-                            <Link to="/dashboard/enrollClasses">Enroll Classes</Link>
-                            <Link to="/dashboard/paymenthistory">Payment History</Link>
+                            <Link to="/dashboard/selectedClass"><BiSelectMultiple></BiSelectMultiple>Selected Class</Link>
+                            <Link to="/dashboard/enrollClasses"><MdPayments></MdPayments>Enroll Classes</Link>
+                            <Link to="/dashboard/paymenthistory"><FaHistory></FaHistory>Payment History</Link>
                         </li>
                     </>
                         

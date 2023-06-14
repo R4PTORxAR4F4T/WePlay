@@ -62,9 +62,10 @@ const ManageClasses = () => {
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>Student</th>
-                        <th>Status</th>
+                        <th>Class Name</th>
+                        <th>Instractor</th>
+                        <th>Seat</th>
+                        <th>Price</th>
                         <th>Update</th>
                     </tr>
                     </thead>
@@ -73,9 +74,26 @@ const ManageClasses = () => {
 
                             <tr key={classitem._id} className="bg-base-200">
                                 <td>{index+1}</td>
-                                <td>{classitem.cName}</td>
-                                <td>{classitem.enrollStudent}</td>
-                                <td>{classitem.status}</td>
+                                <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={classitem.cImage} alt="Avatar Tailwind CSS Component" />
+                                    </div>
+                                    </div>
+                                    <div>
+                                    <div className="font-bold">{classitem.cName}</div>
+                                    </div>
+                                </div>
+                                </td>
+                                <td>
+                                    <div>
+                                    <div className="font-bold">{classitem.iName}</div>
+                                    <div className="text-sm opacity-50">{classitem.email}</div>
+                                    </div>
+                                </td>
+                                <td>{classitem.seat}</td>
+                                <td>{classitem.price}</td>
                                 <td className='flex flex-col gap-2'>
                                     <button onClick={() => handleApproved(classitem._id)} className="btn btn-ghost btn-xs btn-outline" >
                                     Approved

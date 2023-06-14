@@ -29,6 +29,7 @@ const MyClasses = () => {
                         <th>Student</th>
                         <th>Status</th>
                         <th>Update</th>
+                        <th>Feedback</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,9 +41,12 @@ const MyClasses = () => {
                                 <td>{classitem.enrollStudent}</td>
                                 <td>{classitem.status}</td>
                                 <td>
-                                <Link to={`/dashboard/myclasses/${classitem._id}`}>
+                                    <Link to={`/dashboard/myclasses/${classitem._id}`}>
                                     <button className="btn btn-ghost btn-xs">UPDATE</button>
-                                </Link>
+                                    </Link>
+                                </td>
+                                <td>
+                                    {classitem.status !== 'pending' && classitem.status !== 'approve' ? ('feedback') : ''}
                                 </td>
                             </tr>
                         )}
