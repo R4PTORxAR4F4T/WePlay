@@ -1,6 +1,7 @@
 import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet-async';
 
     
     const handleAddClass = event =>{
@@ -67,6 +68,9 @@ const AddClass = () => {
 
     return (
         <div className='my-6'>
+                <Helmet>
+                    <title>WePlay | Add Class</title>
+                </Helmet>
                 <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Add Class</p>
                 <div className="w-full mt-6 mx-auto border border-orange-300 rounded-lg p-12 shadow-xl ">
                 <form onSubmit={handleAddClass}>

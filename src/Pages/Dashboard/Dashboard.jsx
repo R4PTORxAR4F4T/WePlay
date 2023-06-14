@@ -7,6 +7,7 @@ import { SiGoogleclassroom } from "react-icons/si";
 import { FaUsersCog, FaClipboardList ,FaHistory } from "react-icons/fa";
 import { BiBookAdd, BiSelectMultiple } from "react-icons/bi";
 import { MdPayments } from "react-icons/md";
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
 
@@ -14,6 +15,9 @@ const Dashboard = () => {
 
     return (
         <div className='lg:w-4/6 mx-auto'>
+            <Helmet>
+                <title>WePlay | Dashboard</title>
+            </Helmet>
             <Header></Header>
             <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

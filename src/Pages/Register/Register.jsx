@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useState } from 'react';
 import Swal from 'sweetalert2'
+import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
 
@@ -80,6 +81,9 @@ const Register = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>WePlay | Register</title>
+            </Helmet>
             <div className="login-box mx-auto m-12 ">
             <h2 className='text-2xl m-5 border-b border-gray-800'>Creat Account</h2>
             <form onSubmit={handleRegister}>

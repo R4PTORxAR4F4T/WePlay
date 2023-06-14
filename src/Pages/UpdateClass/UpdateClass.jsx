@@ -2,6 +2,7 @@ import React from 'react';
 import useAuth from '../../hooks/useAuth';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateClass = () => {
 
@@ -49,6 +50,9 @@ const UpdateClass = () => {
 
     return (
         <div className='my-6'>
+            <Helmet>
+                <title>WePlay | Update Class</title>
+            </Helmet>
                 <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Update This Class</p>
                 <div className="w-full mt-6 mx-auto border border-orange-300 rounded-lg p-12 shadow-xl ">
                 <form onSubmit={handleUpdate}>

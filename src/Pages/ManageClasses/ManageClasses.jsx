@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const ManageClasses = () => {
 
@@ -56,6 +57,9 @@ const ManageClasses = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>WePlay | Manage Class</title>
+            </Helmet>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Manage All Classes</p>
             <div className="overflow-x-auto">
                 <table className="table">

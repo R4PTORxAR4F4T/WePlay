@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
+import { Helmet } from 'react-helmet-async';
 
 const ManageUser = () => {
 
@@ -56,6 +57,9 @@ const ManageUser = () => {
 
     return (
         <div className='w-5/6'>
+            <Helmet>
+                <title>WePlay | Manage User</title>
+            </Helmet>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Manage User | Total user : </p>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">

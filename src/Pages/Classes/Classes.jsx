@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useRole from '../../hooks/useRole';
+import { Helmet } from 'react-helmet-async';
 
 const Classes = () => {
 
@@ -80,6 +81,9 @@ const Classes = () => {
     
     return (
         <div className='lg:w-4/6 mx-auto'>
+            <Helmet>
+                <title>WePlay | Classes</title>
+            </Helmet>
             <Header></Header>
             <div className='my-10'>
                 <p className='text-4xl text-center border-b pb-4 border-white text-orange-300 my-10'>Our Provided Classes</p>

@@ -3,6 +3,7 @@ import { Elements } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import CheckoutForm from './CheckoutForm';
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
@@ -24,6 +25,9 @@ const Payment = () => {
 
     return (
         <div className="w-5/6">
+            <Helmet>
+                <title>WePlay | payment</title>
+            </Helmet>
             <div>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>Payment</p>
             <p className="text-center my-5 text-orange-300">Your total is : {total} $</p>

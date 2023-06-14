@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
 
@@ -60,6 +61,9 @@ const Login = () => {
 
     return (
         <div className="login-box mx-auto m-12">
+            <Helmet>
+                <title>WePlay | Login</title>
+            </Helmet>
             <h2 className='text-2xl'>Login</h2>
             <form onSubmit={handleLogin}>
                 <div className="user-box">

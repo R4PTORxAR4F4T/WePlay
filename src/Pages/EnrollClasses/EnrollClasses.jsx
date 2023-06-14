@@ -1,5 +1,6 @@
 import {useState , useEffect} from 'react';
 import useAuth from '../../hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const EnrollClasses = () => {
     const {user, loading} = useAuth();
@@ -16,6 +17,9 @@ const EnrollClasses = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>WePlay | Enroll Class</title>
+            </Helmet>
             <p className='text-4xl text-center border-b pb-4 border-white text-orange-300'>All Added Class</p>
             <div className="overflow-x-auto">
                 <table className="table">
