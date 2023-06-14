@@ -82,7 +82,7 @@ const router = createBrowserRouter([
           {
             path: 'myclasses/:id', 
             element: <UpdateClass></UpdateClass>,
-            loader: ({params}) => fetch(`http://localhost:5000/myclasses/${params.id}`)
+            loader: ({params}) => fetch(`https://assignment-12-server-jet-iota.vercel.app/myclasses/${params.id}`)
           },
           {
             path: 'payment',

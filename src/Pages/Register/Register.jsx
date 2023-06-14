@@ -43,7 +43,7 @@ const Register = () => {
             updateUserProfile(name, photo)
                 .then(() => {
                     const saveUser = { name: name, email: email, role:"" }
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://assignment-12-server-jet-iota.vercel.app/users', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

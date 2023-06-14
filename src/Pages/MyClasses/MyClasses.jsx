@@ -7,7 +7,7 @@ const MyClasses = () => {
     const {user, loading} = useAuth();
     const [classes, setClasses] = useState();
 
-    const url = `http://localhost:5000/myclasses?email=${user?.email}`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/myclasses?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)

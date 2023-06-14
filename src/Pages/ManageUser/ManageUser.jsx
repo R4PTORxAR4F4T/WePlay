@@ -7,7 +7,7 @@ const ManageUser = () => {
     const {user, loading} = useAuth();
     const [alluser, setAlluser] = useState();
 
-    const url = `http://localhost:5000/alluser`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/alluser`;
 
     useEffect(() => {
         fetch(url)
@@ -17,7 +17,7 @@ const ManageUser = () => {
     }, [url,loading]);
 
     const handleMakeAdmin = user =>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://assignment-12-server-jet-iota.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -36,7 +36,7 @@ const ManageUser = () => {
     }
 
     const handleMakeInstractor = user =>{
-        fetch(`http://localhost:5000/users/instractor/${user._id}`, {
+        fetch(`https://assignment-12-server-jet-iota.vercel.app/users/instractor/${user._id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())

@@ -11,7 +11,7 @@ const Payment = () => {
     const {user, loading} = useAuth();
     const [cart, setCart] = useState();
 
-    const url = `http://localhost:5000/carts?email=${user?.email}`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/carts?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)

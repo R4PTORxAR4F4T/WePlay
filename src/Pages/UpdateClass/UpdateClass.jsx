@@ -26,7 +26,7 @@ const UpdateClass = () => {
         }
 
 
-        fetch(`http://localhost:5000/myclasses/${_id}`, {
+        fetch(`https://assignment-12-server-jet-iota.vercel.app/myclasses/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

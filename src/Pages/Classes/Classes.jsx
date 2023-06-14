@@ -15,7 +15,7 @@ const Classes = () => {
     const location = useLocation();
 
 
-    const url = `http://localhost:5000/approveclasses`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/approveclasses`;
 
     useEffect(() => {
         fetch(url)
@@ -42,7 +42,7 @@ const Classes = () => {
                 class_id : _id     
             }
             
-            fetch('http://localhost:5000/carts', {
+            fetch('https://assignment-12-server-jet-iota.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

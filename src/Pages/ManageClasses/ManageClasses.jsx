@@ -7,7 +7,7 @@ const ManageClasses = () => {
     const {user, loading} = useAuth();
     const [classes, setClasses] = useState();
 
-    const url = `http://localhost:5000/manageclasses`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/manageclasses`;
 
     useEffect(() => {
         fetch(url)
@@ -17,7 +17,7 @@ const ManageClasses = () => {
     }, [url,loading]);
 
     const handleApproved = id =>{
-        fetch(`http://localhost:5000/manageclasses/approved?id=${id}`, {
+        fetch(`https://assignment-12-server-jet-iota.vercel.app/manageclasses/approved?id=${id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())
@@ -36,7 +36,7 @@ const ManageClasses = () => {
     }
 
     const handleDeny = id =>{
-        fetch(`http://localhost:5000/manageclasses/deny?id=${id}`, {
+        fetch(`https://assignment-12-server-jet-iota.vercel.app/manageclasses/deny?id=${id}`, {
             method: 'PATCH'
         })
         .then(res => res.json())

@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const ActivityCard = () => { 
 
+    const { loading} = useAuth();
     const [TopActivity, setTopActivity] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/topactivity')
+        fetch('https://assignment-12-server-jet-iota.vercel.app/topactivity')
             .then(res => res.json())
             .then(data => {
                 setTopActivity(data);
-                setLoading(false);
             });
-    }, [])
+    }, [loading])
 
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10 '>

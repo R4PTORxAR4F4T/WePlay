@@ -1,18 +1,18 @@
 import React,{ useEffect, useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const InstractorCard = () => {
 
+  const { loading} = useAuth();
     const [TopInstractor, setTopInstractor] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/topinstractor')
+        fetch('https://assignment-12-server-jet-iota.vercel.app/topinstractor')
             .then(res => res.json())
             .then(data => {
                 setTopInstractor(data);
-                setLoading(false);
             });
-    }, [])
+    }, [loading])
     
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>

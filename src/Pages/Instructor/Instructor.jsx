@@ -9,7 +9,7 @@ const Instructor = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allinstractor')
+        fetch('https://assignment-12-server-jet-iota.vercel.app/allinstractor')
             .then(res => res.json())
             .then(data => {
                 setInstractors(data);

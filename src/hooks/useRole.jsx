@@ -8,7 +8,7 @@ const useRole = () => {
     const {user, loading} = useAuth();
     const [role, setRole] = useState(null);
 
-    const url = `http://localhost:5000/user/${user?.email}`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/user/${user?.email}`;
     // console.log(url);
 
     useEffect(() => {

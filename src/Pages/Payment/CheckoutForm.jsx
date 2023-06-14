@@ -18,7 +18,7 @@ const CheckoutForm = ({cart,price}) => {
     useEffect(()=>{
         
         if(price>0){
-            fetch("http://localhost:5000/create-payment-intent",{
+            fetch("https://assignment-12-server-jet-iota.vercel.app/create-payment-intent",{
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'
@@ -92,7 +92,7 @@ const CheckoutForm = ({cart,price}) => {
                 status: 'service pending',
                 items: cart,
             }
-                fetch(`http://localhost:5000/payments?email=${user?.email}`,{
+                fetch(`https://assignment-12-server-jet-iota.vercel.app/payments?email=${user?.email}`,{
                     method: 'POST', 
                     headers: {
                         'content-type': 'application/json'

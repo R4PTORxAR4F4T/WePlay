@@ -29,7 +29,7 @@ import Swal from 'sweetalert2'
             feedback : feedback
         }
 
-        fetch('http://localhost:5000/allclasses',{
+        fetch('https://assignment-12-server-jet-iota.vercel.app/allclasses',{
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'

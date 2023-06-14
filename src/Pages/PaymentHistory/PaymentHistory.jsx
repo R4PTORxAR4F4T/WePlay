@@ -5,7 +5,7 @@ const PaymentHistory = () => {
     const {user, loading} = useAuth();
     const [enroll, setEnroll] = useState();
 
-    const url = `http://localhost:5000/payment?email=${user?.email}`;
+    const url = `https://assignment-12-server-jet-iota.vercel.app/payment?email=${user?.email}`;
 
     useEffect(() => {
         fetch(url)
